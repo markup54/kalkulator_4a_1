@@ -166,6 +166,119 @@ namespace WpfApp1
             return dzielniki;
         }
 
+        private void Button_Click_CzyPierwsza(object sender, RoutedEventArgs e)
+        {
+            int liczba;
+            if (int.TryParse(liczba1_textbox.Text, out liczba)) {
+                if (czyPierwsza(liczba))
+                {
+                    MessageBox.Show("To jest liczba pierwsza ");
+                }
+                else
+                {
+                    MessageBox.Show("To nie jest liczba pierwsza");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wprowadź poprawne dane");
+            }
+        }
+
+        private bool czyPierwsza(int liczba)
+        {
+            if(liczba == 1)
+            {
+                return false;
+            }
+            for(int i = 2;i <= Math.Sqrt(liczba); i++)
+            {
+                if(liczba % i == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            int liczba;
+            int liczba2;
+            if (int.TryParse(liczba1_textbox.Text, out liczba) && int.TryParse(liczba2_textbox.Text,out liczba2))
+            {
+                MessageBox.Show("Nwd liczb " + liczba + " oraz " + liczba2 + " wynosi " + nwd(liczba, liczba2));
+            }
+        }
+
+        private int nwd(int a,int b)
+        {
+            //nie działa dla 0
+            while (a != b)
+            {
+                if (a > b)
+                {
+                    a = a - b;
+                }
+                else
+                {
+                    b = b - a;
+                }
+            }
+            return a;
+        }
+
+        private String zamienZdziesietnegoNaSystem(int liczba, int system)
+        {
+            String wynik = "";
+            while (liczba > 0)
+            {
+                int cyfra = liczba % system;
+                wynik = cyfra + wynik; //przemyśleć
+                liczba = liczba / system;
+            }
+            return wynik;
+        }
+
+        private int zamienNaDziesietnyZSystemu(string liczba,int system)
+        {
+            int wynik = 0;
+            int potega = 1;
+            for(int i =  liczba.Length-1;i>=0; i--)
+            {
+                int cyfra = (int)liczba[i] - 48;
+                if (cyfra > 9)
+                {
+                    cyfra = cyfra - 7;
+                }
+                wynik = wynik + cyfra * potega;// sprawdzić czy rzutowanie string na int?????????????
+                potega = potega * system;
+            }
+            return wynik;
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            string liczba = liczbaDoPrzeliczenieTextBox.Text.Trim();
+            int system;
+            if(int.TryParse(systemTextBox.Text,out system))
+            {
+                MessageBox.Show(zamienNaDziesietnyZSystemu(liczba, system).ToString());
+            }
+
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            int liczbaPrzeliczna;
+            int system;
+            if(int.TryParse(liczbaDoPrzeliczenieTextBox.Text, out liczbaPrzeliczna) && int.TryParse(systemTextBox.Text,out system))
+            {
+                MessageBox.Show(zamienZdziesietnegoNaSystem(liczbaPrzeliczna, system));
+            }
+        }
+
         /*
 * wczytanie pola tekstowego jako liczby (rzeczywista, calkowita)
 * program nie wysypuje się jeżeli wprowadzę coś innego

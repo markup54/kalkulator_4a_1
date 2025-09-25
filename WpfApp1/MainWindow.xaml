@@ -18,5 +18,16 @@
         <Button Click="Button_Click_Suma_cyfr">Suma cyfr w liczbie</Button>
         <Button Click="Button_Click_1">Dzielniki liczby</Button>
         <ListView x:Name="listaDzielnikowListView"></ListView>
+        <Button Click="Button_Click_CzyPierwsza">Czy liczba pierwsza</Button>
+        <Button Click="Button_Click_2">Największy wspólny dzielnik dwóch liczb</Button>
+        <Separator Margin="20"></Separator>
+        <UniformGrid Columns="2">
+            <TextBlock>Podaj liczbę do przeliczenia</TextBlock>
+            <TextBox x:Name="liczbaDoPrzeliczenieTextBox"></TextBox>
+            <TextBlock>Podaj system</TextBlock>
+            <TextBox x:Name="systemTextBox"></TextBox>
+            <Button Click="Button_Click_3">Przelicz na dziesiętne</Button>
+            <Button Click="Button_Click_4">Przelicz z systemu dziesietnego</Button>
+        </UniformGrid>
     </StackPanel>
 </Window>
