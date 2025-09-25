@@ -15,5 +15,6 @@
         <Button Click="Button_Click" >Przepisz</Button>
         <Button Click="Button_Click_Silnia">Silnia liczby całkowitej</Button>
         <Button Click="Button_Click_Potega">Potega podst rzeczywista, wykladnik calkowity</Button>
+        <Button Click="Button_Click_Suma_cyfr">Suma cyfr w liczbie</Button>
     </StackPanel>
 </Window>

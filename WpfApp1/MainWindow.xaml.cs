@@ -108,6 +108,23 @@ namespace WpfApp1
             }
             return wynik;
         }
+
+        private void Button_Click_Suma_cyfr(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private int sumaCyfr(int liczba)
+        {
+            int suma = 0;
+            while (liczba > 0)
+            {
+                int cyfra = liczba % 10;
+
+            }
+            return suma;
+        }
+
         /*
 * wczytanie pola tekstowego jako liczby (rzeczywista, calkowita)
 * program nie wysypuje się jeżeli wprowadzę coś innego
