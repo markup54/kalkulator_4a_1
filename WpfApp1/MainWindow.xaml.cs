@@ -135,6 +135,33 @@ namespace WpfApp1
             return suma;
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int liczba;
+            if(int.TryParse(liczba1_textbox.Text,out liczba))
+            {
+                List<int> dzielniki = dzielnikiLiczby(liczba);
+                listaDzielnikowListView.ItemsSource = dzielniki;
+            }
+            else
+            {
+                MessageBox.Show("Wprowadż liczbę");
+            }
+        }
+
+        private List<int> dzielnikiLiczby(int liczba)
+        {
+            List<int> dzielniki = new List<int>();
+            for(int i = 1; i <= liczba; i++)
+            {
+                if(liczba%i == 0)
+                {
+                    dzielniki.Add(i);
+                }
+            }
+            return dzielniki;
+        }
+
         /*
 * wczytanie pola tekstowego jako liczby (rzeczywista, calkowita)
 * program nie wysypuje się jeżeli wprowadzę coś innego
