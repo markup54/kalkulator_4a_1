@@ -152,11 +152,15 @@ namespace WpfApp1
         private List<int> dzielnikiLiczby(int liczba)
         {
             List<int> dzielniki = new List<int>();
-            for(int i = 1; i <= liczba; i++)
+            for(int i = 1; i <= Math.Sqrt(liczba); i++)
             {
                 if(liczba%i == 0)
                 {
                     dzielniki.Add(i);
+                    if (i != liczba / i)
+                    {
+                        dzielniki.Add(liczba / i);
+                    }
                 }
             }
             return dzielniki;
