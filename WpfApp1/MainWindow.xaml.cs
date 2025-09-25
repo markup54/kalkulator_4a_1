@@ -111,7 +111,15 @@ namespace WpfApp1
 
         private void Button_Click_Suma_cyfr(object sender, RoutedEventArgs e)
         {
-
+            int liczba;
+            if (int.TryParse(liczba1_textbox.Text, out liczba))
+            {
+                MessageBox.Show("Suma cyfr z liczby " + liczba + " wynosi " + sumaCyfr(liczba));
+            }
+            else
+            {
+                MessageBox.Show("Wprowadzono niewłaściwe dane");
+            }
         }
 
         private int sumaCyfr(int liczba)
@@ -120,6 +128,8 @@ namespace WpfApp1
             while (liczba > 0)
             {
                 int cyfra = liczba % 10;
+                liczba = liczba / 10;
+                suma = suma + cyfra;
 
             }
             return suma;
